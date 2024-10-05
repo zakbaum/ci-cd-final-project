@@ -1,0 +1,41 @@
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: cleanup
+spec:
+  params:
+    - name: repo-url
+    - name: branch
+      default: "master"
+  tasks:
+    - name: clone
+      taskRef:
+        name: checkout
+      params:
+      - name: repo-url
+        value: "$(params.repo-url)"
+      - name: branch
+        value: "$(params.branch)"
+
+---
+apiVersion: {placeholder}
+kind: {placeholder}
+metadata:
+  name: {placeholder}
+spec:
+  description: This task will clean up a workspace by deleting all the files.
+  workspaces:
+    - name: {placeholder}
+  steps:
+    - name: {placeholder}
+      image: {placeholder}
+      env:
+        - name: {placeholder}
+          value: {placeholder}
+      workingDir: {placeholder}
+      securityContext:
+        runAsNonRoot: {placeholder}
+        runAsUser: {placeholder}
+      script: |
+        {placeholder}
